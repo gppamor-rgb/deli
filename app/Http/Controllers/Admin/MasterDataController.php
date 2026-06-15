@@ -50,7 +50,7 @@ class MasterDataController extends Controller
                         $q->where('status', '!=', 'inactive')
                           ->orWhereNull('status');
                     })
-                    ->orderByRaw('COALESCE(full_name, "") ASC')
+                    ->orderByRaw('COALESCE(full_name, '') ASC')
                     ->get(),
                 'driver_vehicle_assignments' => DriverVehicleAssignment::query()
                     ->with(['driver:id,full_name', 'vehicle:id,plate_no', 'vehicle.vehicleType:id,name'])
